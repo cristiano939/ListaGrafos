@@ -10,7 +10,7 @@ namespace ListaGrafos.Models
     {
         public string VerticeO { get; set; }
         public string VerticeD { get; set; }
-        public int Peso { get; set; }
+        public double Peso { get; set; }
         public TimeSpan Duracao { get; set; }
         public long Distancia { get; set; }
     }

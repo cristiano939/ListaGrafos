@@ -45,6 +45,27 @@ namespace ListaGrafos
             return null;
         }
 
+        private bool isAtingivel(Vertice vOrigem, Vertice vDestino)
+        {
+            foreach (var aresta in vOrigem.Arestas)
+            {
+                if (aresta.VerticeD == vDestino.Aeroporto)
+                {
+                    return true;
+                }
+                              
+            }
+
+            foreach (var aresta in vOrigem.Arestas)
+            {
+                var novaOrigem = EncontraVerticePorNome(aresta.VerticeD);
+                return isAtingivel(novaOrigem, vDestino);
+            }
+
+
+            return false;
+        }
+
         private bool isAdjacente(Vertice origem, Vertice destino)
         {
             return (from vertice in origem.Arestas where vertice.VerticeD == destino.Aeroporto select vertice).Count() > 0 ? true : false;
@@ -112,14 +133,17 @@ namespace ListaGrafos
                 VerticeO = Vertices[0].Aeroporto,
                 VerticeD = splitedLine[1],
                 Duracao = TimeSpan.Parse(splitedLine[2]),
-                Distancia = splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0
+                Distancia = splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0,
+                Peso = (splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0) + TimeSpan.Parse(splitedLine[2]).TotalHours
+
             });
             Arestas.Add(new Aresta
             {
                 VerticeO = Vertices[0].Aeroporto,
                 VerticeD = splitedLine[1],
                 Duracao = TimeSpan.Parse(splitedLine[2]),
-                Distancia = splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0
+                Distancia = splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0,
+                Peso = (splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0) + TimeSpan.Parse(splitedLine[2]).TotalHours
             });
         }
 
@@ -134,14 +158,16 @@ namespace ListaGrafos
                     VerticeO = splitedLine[0],
                     VerticeD = splitedLine[1],
                     Duracao = TimeSpan.Parse(splitedLine[2]),
-                    Distancia = splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0
+                    Distancia = splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0,
+                    Peso = (splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0) + TimeSpan.Parse(splitedLine[2]).TotalHours
                 });
                 Arestas.Add(new Aresta
                 {
                     VerticeO = splitedLine[0],
                     VerticeD = splitedLine[1],
                     Duracao = TimeSpan.Parse(splitedLine[2]),
-                    Distancia = splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0
+                    Distancia = splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0,
+                    Peso = (splitedLine.Length == 4 ? long.Parse(splitedLine[3]) : 0) + TimeSpan.Parse(splitedLine[2]).TotalHours
                 });
             }
             else
