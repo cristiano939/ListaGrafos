@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Grafo.cs" />
     <Compile Include="Models\Aresta.cs" />
-    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Vertice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,8 +52,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="rotas.txt" />
-    <Content Include="voos.txt" />
+    <Content Include="rotas.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="voos.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

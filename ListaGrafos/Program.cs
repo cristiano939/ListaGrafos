@@ -8,8 +8,16 @@ namespace ListaGrafos
 {
     class Program
     {
+        public static Grafo Rotas;
+        public static Grafo Voos;
+
         static void Main(string[] args)
         {
+            Rotas = new Grafo();
+            Voos = new Grafo();
+
+            Rotas.CriaGrafo("rotas.txt");
+            Voos.CriaGrafo("voos.txt");
         }
     }
 }

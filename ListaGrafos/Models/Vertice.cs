@@ -8,13 +8,12 @@ namespace ListaGrafos.Models
 {
     public class Vertice
     {
-        public int VerticeId { get; set; }
-        public Item Item { get; set; }
+        public string Aeroporto { get; set; }
         public List<Aresta> Arestas { get; set; }
-        public int Grau { get; set; }
 
 
-       
+
+
 
     }
 
