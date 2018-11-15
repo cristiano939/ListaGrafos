@@ -20,6 +20,47 @@ namespace ListaGrafos
 
         }
 
+        public List<Vertice> MelhorCaminho(string origem, string destino)
+        {
+            var caminho = new List<Vertice>();
+            Vertice vOrigem = null, vDestino = null;
+            vOrigem = EncontraVerticePorNome(origem);
+            vDestino = EncontraVerticePorNome(destino);
+            if (vOrigem == null || vDestino == null)
+            {
+                return null;
+            }
+
+            if (isAdjacente(vOrigem, vDestino))
+            {
+
+                caminho.Add(vOrigem);
+                caminho.Add(vDestino);
+                return caminho;
+            }
+            else
+            {
+
+            }
+            return null;
+        }
+
+        private bool isAdjacente(Vertice origem, Vertice destino)
+        {
+            return (from vertice in origem.Arestas where vertice.VerticeD == destino.Aeroporto select vertice).Count() > 0 ? true : false;
+        }
+
+        private Vertice EncontraVerticePorNome(string nome)
+        {
+            Vertice vertice = null;
+            var vertices = from vertex in Vertices where vertex.Aeroporto == nome select vertex;
+            if (vertices.Count() > 0)
+            {
+                vertice = vertices.First();
+            }
+            return vertice;
+        }
+
 
 
         private void InicializaGrafo()
