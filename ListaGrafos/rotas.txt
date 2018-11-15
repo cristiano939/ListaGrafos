@@ -1,0 +1,3 @@
+BH/Curitiba/1:35/980
+SP/RJ/0:45/444
+Porto	Alegre-Florianópolis-0:50-457
