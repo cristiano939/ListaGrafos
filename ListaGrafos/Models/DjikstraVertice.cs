@@ -10,6 +10,7 @@ namespace ListaGrafos.Models
     {
         public static long MAX_DISTANCE = 999999999;
 
+        public string VerticePai { get; set; }
         public long Distancia { get; set; }
     }
 }
