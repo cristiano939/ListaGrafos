@@ -53,17 +53,65 @@ namespace ListaGrafos
                 {
                     return true;
                 }
-                              
+
             }
 
-            foreach (var aresta in vOrigem.Arestas)
+            var vertex = BuscaLargura(vOrigem, vDestino);
+            if (vertex != null)
             {
-                var novaOrigem = EncontraVerticePorNome(aresta.VerticeD);
-                return isAtingivel(novaOrigem, vDestino);
+                return true;
             }
-
 
             return false;
+        }
+
+        private Vertice BuscaLargura(Vertice vOrigem, Vertice vDestino)
+        {
+            LimpaStatus();
+            var visitados = new List<Vertice>();
+
+            visitados.Add(vOrigem);
+
+            bool TodosVisitados = false;
+            while (!TodosVisitados) // quase n^3
+            {
+                foreach (var vertex in visitados)
+                {
+                    foreach (var aresta in vertex.Arestas)
+                    {
+                        if (aresta.VerticeD == vDestino.Aeroporto)
+                        {
+                            return vDestino;
+                        }
+                    }
+                }
+
+                int count = visitados.Count;
+
+                for (int i = 0; i < count; i++)
+                {
+
+                    foreach (var aresta in visitados[i].Arestas)
+                    {
+                        if (EncontraVerticePorNome(aresta.VerticeD, visitados) == null)
+                        {
+                            visitados.Add(EncontraVerticePorNome(aresta.VerticeD));
+                        }
+                    }
+                    visitados[i].Status = Status.FINALIZADO;
+
+                }
+                TodosVisitados = (from vertice in visitados where vertice.Status == Status.FINALIZADO select vertice).Count() == visitados.Count ? true : false;
+            }
+            return null;
+        }
+
+        private void LimpaStatus()
+        {
+            foreach (var vertex in Vertices)
+            {
+                vertex.Status = Status.NOVO;
+            }
         }
 
         private bool isAdjacente(Vertice origem, Vertice destino)
@@ -73,8 +121,13 @@ namespace ListaGrafos
 
         private Vertice EncontraVerticePorNome(string nome)
         {
+            return EncontraVerticePorNome(nome, Vertices);
+        }
+
+        private Vertice EncontraVerticePorNome(string nome, List<Vertice> listaVertices)
+        {
             Vertice vertice = null;
-            var vertices = from vertex in Vertices where vertex.Aeroporto == nome select vertex;
+            var vertices = from vertex in listaVertices where vertex.Aeroporto == nome select vertex;
             if (vertices.Count() > 0)
             {
                 vertice = vertices.First();

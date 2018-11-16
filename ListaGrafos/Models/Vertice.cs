@@ -10,6 +10,7 @@ namespace ListaGrafos.Models
     {
         public string Aeroporto { get; set; }
         public List<Aresta> Arestas { get; set; }
+        public Status Status { get; set; }
 
 
 
