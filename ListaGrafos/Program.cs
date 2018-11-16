@@ -20,9 +20,9 @@ namespace ListaGrafos
             Voos.CriaGrafo("voos.txt");
 
             var BH = Rotas.EncontraVerticePorNome("BH");
-            var MACEIO = Rotas.EncontraVerticePorNome("MACEIO");
-            var atingivel = Rotas.isAtingivel(BH, MACEIO);
-            var melhorCaminho = Rotas.MelhorCaminho(BH.Aeroporto, MACEIO.Aeroporto);
+            var OSASCO = Rotas.EncontraVerticePorNome("OSASCO");
+            var atingivel = Rotas.isAtingivel(BH, OSASCO);
+            var melhorCaminho = Rotas.MelhorCaminho(BH.Aeroporto, OSASCO.Aeroporto);
             
         }
     }
