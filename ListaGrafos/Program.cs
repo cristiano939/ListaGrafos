@@ -22,6 +22,7 @@ namespace ListaGrafos
             var BH = Rotas.EncontraVerticePorNome("BH");
             var MACEIO = Rotas.EncontraVerticePorNome("MACEIO");
             var atingivel = Rotas.isAtingivel(BH, MACEIO);
+            Rotas.MelhorCaminho(BH.Aeroporto, MACEIO.Aeroporto);
         }
     }
 }

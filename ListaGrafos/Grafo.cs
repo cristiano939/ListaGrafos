@@ -40,9 +40,54 @@ namespace ListaGrafos
             }
             else
             {
-
+                EncontraMelhorCaminho(origem, destino);
             }
             return null;
+        }
+
+        public List<Vertice> EncontraMelhorCaminho(string origem, string destino)
+        {
+            var distanceList = new List<DjikstraVertice>();
+
+            foreach (var vertex in Vertices)
+            {
+                distanceList.Add(new DjikstraVertice
+                {
+                    Aeroporto = vertex.Aeroporto,
+                    Status = Status.NOVO,
+                    Arestas = CopiarArestas(vertex.Arestas),
+                    Distancia = vertex.Aeroporto == origem ? 0 : DjikstraVertice.MAX_DISTANCE
+                });
+            }
+
+            var vOrigem = EncontraVerticePorNome(origem);
+            foreach (var aresta in vOrigem.Arestas)
+            {
+                foreach (var dVertice in distanceList)
+                {
+                    var vertexes = from vertex in Vertices where vertex.Aeroporto == aresta.VerticeD select vertex;
+                    var index = Vertices.IndexOf(vertexes.First());
+                    distanceList[index].Distancia = aresta.Distancia;
+                }
+            }
+            return null;
+        }
+
+        private List<Aresta> CopiarArestas(List<Aresta> oArestas)
+        {
+            var arestaList = new List<Aresta>();
+            foreach (var aresta in oArestas)
+            {
+                arestaList.Add(new Aresta
+                {
+                    Distancia = aresta.Distancia,
+                    Duracao = aresta.Duracao,
+                    Peso = aresta.Peso,
+                    VerticeD = aresta.VerticeD,
+                    VerticeO = aresta.VerticeO
+                });
+            }
+            return arestaList;
         }
 
         public bool isAtingivel(Vertice vOrigem, Vertice vDestino)

@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace ListaGrafos.Models
 {
-    public enum Status
+    public class DjikstraVertice : Vertice
     {
-        NOVO = 0,
-        VISITADO = 1,
-        FINALIZADO = 2
-    }
+        public static long MAX_DISTANCE = 999999999;
 
-    
+        public long Distancia { get; set; }
+    }
 }
