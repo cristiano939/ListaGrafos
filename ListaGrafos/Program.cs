@@ -18,6 +18,10 @@ namespace ListaGrafos
 
             Rotas.CriaGrafo("rotas.txt");
             Voos.CriaGrafo("voos.txt");
+
+            var BH = Rotas.EncontraVerticePorNome("BH");
+            var MACEIO = Rotas.EncontraVerticePorNome("MACEIO");
+            var atingivel = Rotas.isAtingivel(BH, MACEIO);
         }
     }
 }

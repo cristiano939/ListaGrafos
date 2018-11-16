@@ -45,7 +45,7 @@ namespace ListaGrafos
             return null;
         }
 
-        private bool isAtingivel(Vertice vOrigem, Vertice vDestino)
+        public bool isAtingivel(Vertice vOrigem, Vertice vDestino)
         {
             foreach (var aresta in vOrigem.Arestas)
             {
@@ -119,12 +119,12 @@ namespace ListaGrafos
             return (from vertice in origem.Arestas where vertice.VerticeD == destino.Aeroporto select vertice).Count() > 0 ? true : false;
         }
 
-        private Vertice EncontraVerticePorNome(string nome)
+        public Vertice EncontraVerticePorNome(string nome)
         {
             return EncontraVerticePorNome(nome, Vertices);
         }
 
-        private Vertice EncontraVerticePorNome(string nome, List<Vertice> listaVertices)
+        public Vertice EncontraVerticePorNome(string nome, List<Vertice> listaVertices)
         {
             Vertice vertice = null;
             var vertices = from vertex in listaVertices where vertex.Aeroporto == nome select vertex;
