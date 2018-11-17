@@ -1,0 +1,8 @@
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\bin\Debug\netcoreapp2.0\TI.SistemaVoo.deps.json
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\bin\Debug\netcoreapp2.0\TI.SistemaVoo.dll
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\bin\Debug\netcoreapp2.0\TI.SistemaVoo.pdb
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.SistemaVoo.csproj.CoreCompileInputs.cache
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.SistemaVoo.AssemblyInfoInputs.cache
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.SistemaVoo.AssemblyInfo.cs
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.SistemaVoo.dll
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.SistemaVoo.pdb
