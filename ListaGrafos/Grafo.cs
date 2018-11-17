@@ -81,6 +81,38 @@ namespace ListaGrafos
             return cutSets;
         }
 
+        public DateTime CalculaHoraMaxSaida(DateTime horaDesejada, string origem, string destino)
+        {
+            if (isAtingivel(EncontraVerticePorNome(origem), EncontraVerticePorNome(destino)))
+            {
+                TimeSpan intervalo = TimeSpan.FromMinutes(0);
+                var caminho = EncontraMelhorCaminho(origem, destino);
+                for (int i = 0; i < caminho.Count - 1; i++)
+                {
+                    if (caminho[i].Aeroporto != caminho.Last().Aeroporto)
+                    {
+                        foreach (var aresta in caminho[i].Arestas)
+                        {
+                            if (aresta.VerticeD == caminho[i + 1].Aeroporto)
+                            {
+                                intervalo = intervalo.Add(aresta.Duracao);
+                                break;
+                            }
+                        }
+                    }
+                }
+                horaDesejada = horaDesejada.Add(-intervalo);
+                return horaDesejada;
+            }
+            else
+            {
+                return DateTime.MinValue;
+            }
+
+
+
+
+        }
 
 
         public List<Vertice> EncontraMelhorCaminho(string origem, string destino)
@@ -144,6 +176,7 @@ namespace ListaGrafos
                 caminho.Add(verticeAtual);
             }
             caminho.Add(vOrigem);
+            caminho.Reverse();
             return caminho;
 
         }

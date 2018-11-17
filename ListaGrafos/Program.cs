@@ -25,6 +25,7 @@ namespace ListaGrafos
 
             var melhorCaminho = Rotas.MelhorCaminho(BH.Aeroporto, OSASCO.Aeroporto);
             var cutSet = Rotas.EncontraCutSet(BH, OSASCO);
+            var horaDesejada = Rotas.CalculaHoraMaxSaida(new DateTime(2018,11,18,08,05,20),"BH","OSASCO");
         }
     }
 }
