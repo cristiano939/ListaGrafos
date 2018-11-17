@@ -83,6 +83,7 @@ namespace TI.SistemaVoo.Tests
             vDestino.Aeroporto.ShouldBe(destino);
 
             Rotas.MelhorCaminho(origem, destino).Count.ShouldBeGreaterThan(0);
+            var melhorCaminho = Rotas.MelhorCaminho(origem, destino);
             return;
         }
 
@@ -110,6 +111,7 @@ namespace TI.SistemaVoo.Tests
             vDestino.Aeroporto.ShouldBe(destino);
 
             Rotas.EncontraCutSet(vOrigem, vDestino).Count.ShouldBeGreaterThan(0);
+            var cutSets = Rotas.EncontraCutSet(vOrigem, vDestino);
             return;
         }
 
@@ -139,6 +141,7 @@ namespace TI.SistemaVoo.Tests
 
             Rotas.CalculaHoraMaxSaida(horarioMax, origem, destino).ShouldNotBeNull();
             Rotas.CalculaHoraMaxSaida(horarioMax, origem, destino).ShouldNotBe(DateTime.MinValue);
+            var maxDate = Rotas.CalculaHoraMaxSaida(horarioMax, origem, destino);
             return;
         }
 
