@@ -42,7 +42,7 @@ namespace ListaGrafos
             {
                 return EncontraMelhorCaminho(origem, destino);
             }
-            return null;
+
         }
 
         public List<Vertice> EncontraMelhorCaminho(string origem, string destino)
@@ -147,7 +147,7 @@ namespace ListaGrafos
             return false;
         }
 
-        private Vertice BuscaLargura(Vertice vOrigem, Vertice vDestino)
+        private Vertice BuscaLargura(Vertice vOrigem, Vertice vDestino, List<Vertice> listaVertice)
         {
             LimpaStatus();
             var visitados = new List<Vertice>();
@@ -177,7 +177,7 @@ namespace ListaGrafos
                     {
                         if (EncontraVerticePorNome(aresta.VerticeD, visitados) == null)
                         {
-                            visitados.Add(EncontraVerticePorNome(aresta.VerticeD));
+                            visitados.Add(EncontraVerticePorNome(aresta.VerticeD, listaVertice));
                         }
                     }
                     visitados[i].Status = Status.FINALIZADO;
@@ -186,6 +186,11 @@ namespace ListaGrafos
                 TodosVisitados = (from vertice in visitados where vertice.Status == Status.FINALIZADO select vertice).Count() == visitados.Count ? true : false;
             }
             return null;
+        }
+
+        private Vertice BuscaLargura(Vertice vOrigem, Vertice vDestino)
+        {
+            return BuscaLargura(vOrigem, vDestino, Vertices);
         }
 
         private void LimpaStatus()

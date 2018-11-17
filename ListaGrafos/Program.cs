@@ -22,6 +22,7 @@ namespace ListaGrafos
             var BH = Rotas.EncontraVerticePorNome("BH");
             var OSASCO = Rotas.EncontraVerticePorNome("OSASCO");
             var atingivel = Rotas.isAtingivel(BH, OSASCO);
+
             var melhorCaminho = Rotas.MelhorCaminho(BH.Aeroporto, OSASCO.Aeroporto);
             
         }
