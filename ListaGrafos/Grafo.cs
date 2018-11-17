@@ -45,6 +45,44 @@ namespace ListaGrafos
 
         }
 
+        public List<Vertice> EncontraCutSet(Vertice Origem, Vertice Destino)
+        {
+            var cutSets = new List<Vertice>();
+            var vertexes = new List<Vertice>();
+            foreach (var vertice in Vertices)
+            {
+                vertexes.Add(new Vertice
+                {
+                    Aeroporto = vertice.Aeroporto,
+                    Status = Status.NOVO,
+                    Arestas = CopiarArestas(vertice.Arestas)
+                });
+            }
+            if (!isAtingivel(Origem, Destino))
+            {
+                return cutSets;
+            }
+
+            while (vertexes.Count > 0)
+            {
+                var rVertice = SelecionaVerticeARemover(Origem.Aeroporto, Destino.Aeroporto, vertexes);
+                RemoverVertice(rVertice, vertexes);
+                if (!isAtingivel(Origem, Destino, vertexes))
+                {
+                    cutSets.Add(rVertice);
+                    return cutSets;
+                }
+                else
+                {
+                    cutSets.Add(rVertice);
+                }
+            }
+
+            return cutSets;
+        }
+
+
+
         public List<Vertice> EncontraMelhorCaminho(string origem, string destino)
         {
             LimpaStatus();
@@ -110,6 +148,69 @@ namespace ListaGrafos
 
         }
 
+        public Vertice EncontraVerticePorNome(string nome)
+        {
+            return EncontraVerticePorNome(nome, Vertices);
+        }
+
+        public Vertice EncontraVerticePorNome(string nome, List<Vertice> listaVertices)
+        {
+            try
+            {
+                Vertice vertice = null;
+                var vertices = from vertex in listaVertices where vertex.Aeroporto == nome select vertex;
+                if (vertices.Count() > 0)
+                {
+                    vertice = vertices.First();
+                }
+                return vertice;
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+
+        public DjikstraVertice EncontraVerticePorNome(string nome, List<DjikstraVertice> listaVertices)
+        {
+            DjikstraVertice vertice = null;
+            var vertices = from vertex in listaVertices where vertex.Aeroporto == nome select vertex;
+            if (vertices.Count() > 0)
+            {
+                vertice = vertices.First();
+            }
+            return vertice;
+        }
+
+
+
+
+        public bool isAtingivel(Vertice vOrigem, Vertice vDestino)
+        {
+            return isAtingivel(vOrigem, vDestino, Vertices);
+        }
+
+        public bool isAtingivel(Vertice vOrigem, Vertice vDestino, List<Vertice> vertices)
+        {
+            foreach (var aresta in vOrigem.Arestas)
+            {
+                if (aresta.VerticeD == vDestino.Aeroporto)
+                {
+                    return true;
+                }
+
+            }
+
+            var vertex = BuscaLargura(vOrigem, vDestino, vertices);
+            if (vertex != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         private List<Aresta> CopiarArestas(List<Aresta> oArestas)
         {
             var arestaList = new List<Aresta>();
@@ -127,24 +228,40 @@ namespace ListaGrafos
             return arestaList;
         }
 
-        public bool isAtingivel(Vertice vOrigem, Vertice vDestino)
+        private Vertice SelecionaVerticeARemover(string origem, string destino, List<Vertice> listaVertices)
         {
-            foreach (var aresta in vOrigem.Arestas)
+            var vertexes = new List<Vertice>();
+            vertexes.AddRange(listaVertices);
+            var vOrigem = EncontraVerticePorNome(origem, vertexes);
+            var vDestino = EncontraVerticePorNome(destino, vertexes);
+            listaVertices.Remove(vOrigem);
+            listaVertices.Remove(vDestino);
+            var rVertice = listaVertices.OrderByDescending(x => x.Arestas.Count).First();
+            return rVertice;
+
+        }
+
+        private void RemoverVertice(Vertice vertice, List<Vertice> vertices)
+        {
+            foreach (var vertex in vertices)
             {
-                if (aresta.VerticeD == vDestino.Aeroporto)
+                var arestasRemover = new List<Aresta>();
+                foreach (var aresta in vertex.Arestas)
                 {
-                    return true;
+                    if (aresta.VerticeD == vertex.Aeroporto)
+                    {
+                        arestasRemover.Add(aresta);
+                    }
+                }
+                foreach (var aresta in arestasRemover)
+                {
+                    vertex.Arestas.Remove(aresta);
                 }
 
             }
+            vertices.Remove(vertice);
+            vertices.RemoveAll(x => x == null);
 
-            var vertex = BuscaLargura(vOrigem, vDestino);
-            if (vertex != null)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         private Vertice BuscaLargura(Vertice vOrigem, Vertice vDestino, List<Vertice> listaVertice)
@@ -178,6 +295,7 @@ namespace ListaGrafos
                         if (EncontraVerticePorNome(aresta.VerticeD, visitados) == null)
                         {
                             visitados.Add(EncontraVerticePorNome(aresta.VerticeD, listaVertice));
+                            visitados.RemoveAll(x => x == null);
                         }
                     }
                     visitados[i].Status = Status.FINALIZADO;
@@ -206,32 +324,8 @@ namespace ListaGrafos
             return (from vertice in origem.Arestas where vertice.VerticeD == destino.Aeroporto select vertice).Count() > 0 ? true : false;
         }
 
-        public Vertice EncontraVerticePorNome(string nome)
-        {
-            return EncontraVerticePorNome(nome, Vertices);
-        }
 
-        public Vertice EncontraVerticePorNome(string nome, List<Vertice> listaVertices)
-        {
-            Vertice vertice = null;
-            var vertices = from vertex in listaVertices where vertex.Aeroporto == nome select vertex;
-            if (vertices.Count() > 0)
-            {
-                vertice = vertices.First();
-            }
-            return vertice;
-        }
 
-        public DjikstraVertice EncontraVerticePorNome(string nome, List<DjikstraVertice> listaVertices)
-        {
-            DjikstraVertice vertice = null;
-            var vertices = from vertex in listaVertices where vertex.Aeroporto == nome select vertex;
-            if (vertices.Count() > 0)
-            {
-                vertice = vertices.First();
-            }
-            return vertice;
-        }
 
 
 

@@ -24,7 +24,7 @@ namespace ListaGrafos
             var atingivel = Rotas.isAtingivel(BH, OSASCO);
 
             var melhorCaminho = Rotas.MelhorCaminho(BH.Aeroporto, OSASCO.Aeroporto);
-            
+            var cutSet = Rotas.EncontraCutSet(BH, OSASCO);
         }
     }
 }
