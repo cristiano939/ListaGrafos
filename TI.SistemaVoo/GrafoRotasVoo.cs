@@ -138,8 +138,10 @@ namespace TI.SistemaVoo
                         minVertices.Add(vertexAdd);
                     }
                 }
-
             }
+           
+            minArestas = minArestas.Distinct().ToList();
+            minVertices = minVertices.Distinct().ToList();
             return new Grafo { Arestas = minArestas, Vertices = minVertices };
 
         }
