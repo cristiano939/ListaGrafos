@@ -6,3 +6,4 @@ C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.S
 C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.SistemaVoo.AssemblyInfo.cs
 C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.SistemaVoo.dll
 C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.SistemaVoo.pdb
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SistemaVoo\obj\Debug\netcoreapp2.0\TI.SistemaVoo.csprojAssemblyReference.cache

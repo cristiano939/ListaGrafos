@@ -107,8 +107,40 @@ namespace TI.SistemaVoo
                 return DateTime.MinValue;
             }
 
+        }
 
+        public Grafo ArvoreGeradoraMin(List<Vertice> vertices, List<Aresta> arestas)
+        {
+            LimpaStatus(vertices);
+            var minVertices = new List<Vertice>();
+            var minArestas = new List<Aresta>();
 
+            arestas = arestas.OrderBy(aresta => aresta.Distancia).ToList();
+            while (minVertices.Count < vertices.Count)
+            {
+                foreach (var aresta in arestas)
+                {
+                    if ((from vertice in minVertices where vertice.Aeroporto == aresta.VerticeO select vertice).Count() == 0)
+                    {
+                        minArestas.Add(new Aresta { Distancia = aresta.Distancia, Duracao = aresta.Duracao, Peso = aresta.Peso, VerticeD = aresta.VerticeD, VerticeO = aresta.VerticeO });
+                        var auxVertex = (from vertice in Vertices where vertice.Aeroporto == aresta.VerticeO select vertice).First();
+                        var vertexAdd = new Vertice { Aeroporto = auxVertex.Aeroporto, Status = Status.NOVO, Arestas = new List<Aresta>() };
+                        vertexAdd.Arestas.Add(new Aresta { Distancia = aresta.Distancia, Duracao = aresta.Duracao, Peso = aresta.Peso, VerticeD = aresta.VerticeD, VerticeO = aresta.VerticeO });
+                        minVertices.Add(vertexAdd);
+
+                    }
+                    if ((from vertice in minVertices where vertice.Aeroporto == aresta.VerticeD select vertice).Count() == 0)
+                    {
+                        minArestas.Add(new Aresta { Distancia = aresta.Distancia, Duracao = aresta.Duracao, Peso = aresta.Peso, VerticeD = aresta.VerticeD, VerticeO = aresta.VerticeO });
+                        var auxVertex = (from vertice in Vertices where vertice.Aeroporto == aresta.VerticeD select vertice).First();
+                        var vertexAdd = new Vertice { Aeroporto = auxVertex.Aeroporto, Status = Status.NOVO, Arestas = new List<Aresta>() };
+                        vertexAdd.Arestas.Add(new Aresta { Distancia = aresta.Distancia, Duracao = aresta.Duracao, Peso = aresta.Peso, VerticeD = aresta.VerticeD, VerticeO = aresta.VerticeO });
+                        minVertices.Add(vertexAdd);
+                    }
+                }
+
+            }
+            return new Grafo { Arestas = minArestas, Vertices = minVertices };
 
         }
 
@@ -344,7 +376,12 @@ namespace TI.SistemaVoo
 
         private void LimpaStatus()
         {
-            foreach (var vertex in Vertices)
+            LimpaStatus(Vertices);
+        }
+
+        private void LimpaStatus(List<Vertice> vertices)
+        {
+            foreach (var vertex in vertices)
             {
                 vertex.Status = Status.NOVO;
             }

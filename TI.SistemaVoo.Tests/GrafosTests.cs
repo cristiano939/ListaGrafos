@@ -115,7 +115,7 @@ namespace TI.SistemaVoo.Tests
             return;
         }
 
-        [TestCase("2018-11-18 20:05:20","BH", "SP")]
+        [TestCase("2018-11-18 20:05:20", "BH", "SP")]
         [TestCase("2018-11-18 20:05:20", "BH", "OSASCO")]
         [TestCase("2018-11-18 20:05:20", "SP", "OSASCO")]
         [TestCase("2018-11-18 20:05:20", "RJ", "PALMAS")]
@@ -142,6 +142,23 @@ namespace TI.SistemaVoo.Tests
             Rotas.CalculaHoraMaxSaida(horarioMax, origem, destino).ShouldNotBeNull();
             Rotas.CalculaHoraMaxSaida(horarioMax, origem, destino).ShouldNotBe(DateTime.MinValue);
             var maxDate = Rotas.CalculaHoraMaxSaida(horarioMax, origem, destino);
+            return;
+        }
+
+        [TestCase]
+        public void ArvoreGeradoraMinima_Test()
+        {
+            Grafo Rotas = new Grafo();
+            Grafo Voos = new Grafo();
+            Rotas.CriaGrafo("rotas.txt");
+            Voos.CriaGrafo("voos.txt");
+
+
+
+            var prim = Rotas.ArvoreGeradoraMin(Rotas.Vertices, Rotas.Arestas);
+            prim.ShouldNotBeNull();
+            prim.Vertices.Count.ShouldBeGreaterThan(0);
+            prim.Arestas.Count.ShouldBeGreaterThan(0);
             return;
         }
 
