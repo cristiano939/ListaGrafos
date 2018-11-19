@@ -20,8 +20,8 @@ namespace TI.SistemaVoo.Tests
         [TestCase("SALVADOR")]
         public void EncontrarVerticePorNome_Test(string nome)
         {
-            Grafo Rotas = new Grafo();
-            Grafo Voos = new Grafo();
+            GrafoRotasVoo Rotas = new GrafoRotasVoo();
+            GrafoRotasVoo Voos = new GrafoRotasVoo();
             Rotas.CriaGrafo("rotas.txt");
             Voos.CriaGrafo("voos.txt");
 
@@ -42,8 +42,8 @@ namespace TI.SistemaVoo.Tests
         [TestCase("SALVADOR", "PORTO ALEGRE")]
         public void isAtingivel_Test(string origem, string destino)
         {
-            Grafo Rotas = new Grafo();
-            Grafo Voos = new Grafo();
+            GrafoRotasVoo Rotas = new GrafoRotasVoo();
+            GrafoRotasVoo Voos = new GrafoRotasVoo();
             Rotas.CriaGrafo("rotas.txt");
             Voos.CriaGrafo("voos.txt");
 
@@ -69,8 +69,8 @@ namespace TI.SistemaVoo.Tests
         [TestCase("SALVADOR", "PORTO ALEGRE")]
         public void MelhorCaminho_Test(string origem, string destino)
         {
-            Grafo Rotas = new Grafo();
-            Grafo Voos = new Grafo();
+            GrafoRotasVoo Rotas = new GrafoRotasVoo();
+            GrafoRotasVoo Voos = new GrafoRotasVoo();
             Rotas.CriaGrafo("rotas.txt");
             Voos.CriaGrafo("voos.txt");
 
@@ -97,8 +97,8 @@ namespace TI.SistemaVoo.Tests
         [TestCase("SALVADOR", "PORTO ALEGRE")]
         public void EncontrarCutSet_Test(string origem, string destino)
         {
-            Grafo Rotas = new Grafo();
-            Grafo Voos = new Grafo();
+            GrafoRotasVoo Rotas = new GrafoRotasVoo();
+            GrafoRotasVoo Voos = new GrafoRotasVoo();
             Rotas.CriaGrafo("rotas.txt");
             Voos.CriaGrafo("voos.txt");
 
@@ -126,8 +126,8 @@ namespace TI.SistemaVoo.Tests
         [TestCase("2018-11-18 20:05:20", "SALVADOR", "PORTO ALEGRE")]
         public void EncontrarHorarioMaximo_Test(DateTime horarioMax, string origem, string destino)
         {
-            Grafo Rotas = new Grafo();
-            Grafo Voos = new Grafo();
+            GrafoRotasVoo Rotas = new GrafoRotasVoo();
+            GrafoRotasVoo Voos = new GrafoRotasVoo();
             Rotas.CriaGrafo("rotas.txt");
             Voos.CriaGrafo("voos.txt");
 
@@ -148,8 +148,8 @@ namespace TI.SistemaVoo.Tests
         [TestCase]
         public void ArvoreGeradoraMinima_Test()
         {
-            Grafo Rotas = new Grafo();
-            Grafo Voos = new Grafo();
+            GrafoRotasVoo Rotas = new GrafoRotasVoo();
+            GrafoRotasVoo Voos = new GrafoRotasVoo();
             Rotas.CriaGrafo("rotas.txt");
             Voos.CriaGrafo("voos.txt");
 

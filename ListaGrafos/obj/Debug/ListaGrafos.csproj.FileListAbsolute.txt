@@ -1,8 +1,0 @@
-C:\Cristiano\PROJETOS GIT\ListaGrafos\ListaGrafos\bin\Debug\rotas.txt
-C:\Cristiano\PROJETOS GIT\ListaGrafos\ListaGrafos\bin\Debug\voos.txt
-C:\Cristiano\PROJETOS GIT\ListaGrafos\ListaGrafos\bin\Debug\ListaGrafos.exe.config
-C:\Cristiano\PROJETOS GIT\ListaGrafos\ListaGrafos\bin\Debug\ListaGrafos.exe
-C:\Cristiano\PROJETOS GIT\ListaGrafos\ListaGrafos\bin\Debug\ListaGrafos.pdb
-C:\Cristiano\PROJETOS GIT\ListaGrafos\ListaGrafos\obj\Debug\ListaGrafos.csproj.CoreCompileInputs.cache
-C:\Cristiano\PROJETOS GIT\ListaGrafos\ListaGrafos\obj\Debug\ListaGrafos.exe
-C:\Cristiano\PROJETOS GIT\ListaGrafos\ListaGrafos\obj\Debug\ListaGrafos.pdb

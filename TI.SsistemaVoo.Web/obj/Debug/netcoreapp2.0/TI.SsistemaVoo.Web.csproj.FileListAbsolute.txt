@@ -1,0 +1,16 @@
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\bin\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.deps.json
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\bin\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.runtimeconfig.json
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\bin\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.runtimeconfig.dev.json
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\bin\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.dll
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\bin\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.pdb
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\bin\Debug\netcoreapp2.0\TI.SistemaVoo.dll
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\bin\Debug\netcoreapp2.0\TI.SistemaVoo.pdb
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\obj\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.csprojAssemblyReference.cache
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\obj\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.csproj.CoreCompileInputs.cache
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\obj\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.AssemblyInfoInputs.cache
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\obj\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.AssemblyInfo.cs
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\obj\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.csproj.CopyComplete
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\obj\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.dll
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\obj\Debug\netcoreapp2.0\TI.SsistemaVoo.Web.pdb
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\bin\Debug\netcoreapp2.0\rotas.txt
+C:\Cristiano\PROJETOS GIT\ListaGrafos\TI.SsistemaVoo.Web\bin\Debug\netcoreapp2.0\voos.txt

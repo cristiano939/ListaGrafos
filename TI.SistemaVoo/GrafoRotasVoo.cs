@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TI.SistemaVoo.Interfaces;
 using TI.SistemaVoo.Models;
 
 namespace TI.SistemaVoo
 {
-    public class Grafo
+    public class GrafoRotasVoo : IGrafoRotasVoo
     {
         public List<Vertice> Vertices { get; set; }
         public List<Aresta> Arestas { get; set; }
+
+        public GrafoRotasVoo()
+        {
+            Vertices = new List<Vertice>();
+            Arestas = new List<Aresta>();
+        }
 
         public void CriaGrafo(string filePath)
         {
@@ -109,7 +116,7 @@ namespace TI.SistemaVoo
 
         }
 
-        public Grafo ArvoreGeradoraMin(List<Vertice> vertices, List<Aresta> arestas)
+        public GrafoRotasVoo ArvoreGeradoraMin(List<Vertice> vertices, List<Aresta> arestas)
         {
             LimpaStatus(vertices);
             var minVertices = new List<Vertice>();
@@ -142,7 +149,7 @@ namespace TI.SistemaVoo
            
             minArestas = minArestas.Distinct().ToList();
             minVertices = minVertices.Distinct().ToList();
-            return new Grafo { Arestas = minArestas, Vertices = minVertices };
+            return new GrafoRotasVoo { Arestas = minArestas, Vertices = minVertices };
 
         }
 

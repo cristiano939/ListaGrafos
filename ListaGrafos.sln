@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TI.SistemaVoo", "TI.Sistema
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TI.SistemaVoo.Tests", "TI.SistemaVoo.Tests\TI.SistemaVoo.Tests.csproj", "{A47AE3FB-2940-44AC-8846-CB17CBD32C5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TI.SsistemaVoo.Web", "TI.SsistemaVoo.Web\TI.SsistemaVoo.Web.csproj", "{41B3162F-8BCE-410A-AC64-AFB3BE1ACF2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A47AE3FB-2940-44AC-8846-CB17CBD32C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A47AE3FB-2940-44AC-8846-CB17CBD32C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A47AE3FB-2940-44AC-8846-CB17CBD32C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B3162F-8BCE-410A-AC64-AFB3BE1ACF2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B3162F-8BCE-410A-AC64-AFB3BE1ACF2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B3162F-8BCE-410A-AC64-AFB3BE1ACF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B3162F-8BCE-410A-AC64-AFB3BE1ACF2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
