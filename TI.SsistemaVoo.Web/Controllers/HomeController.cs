@@ -20,7 +20,8 @@ namespace TI.SsistemaVoo.Web.Controllers
 
         public IActionResult Index()
         {
-            var grafoVooRotas =  _grafoHandler.GetGrafoFromDB();
+            var grafoVooRotas = _grafoHandler.GetGrafoFromDB();
+            ViewData["Grafo"] = grafoVooRotas;
             return View();
         }
 

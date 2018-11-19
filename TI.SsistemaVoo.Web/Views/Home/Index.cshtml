@@ -1,11 +1,16 @@
-﻿<html lang="en">
+﻿@using TI.SsistemaVoo.Web
+@using TI.SistemaVoo;
+@{
+    Layout = null;
+}
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Places &mdash; Free HTML5 Bootstrap 4 Theme by uicookies.com</title>
     <meta name="description" content="Free Bootstrap 4 Theme by uicookies.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-    
+
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="~/css/bootstrap/bootstrap.css">
@@ -64,17 +69,12 @@
                                         <label for="id_label_single">From</label>
                                         <label for="id_label_single" style="width: 100%;">
                                             <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-                                                <option value="Australia">Australia</option>
-                                                <option value="Japan">Japan</option>
-                                                <option value="United States">United States</option>
-                                                <option value="Brazil">Brazil</option>
-                                                <option value="China">China</option>
-                                                <option value="Israel">Israel</option>
-                                                <option value="Philippines">Philippines</option>
-                                                <option value="Malaysia">Malaysia</option>
-                                                <option value="Canada">Canada</option>
-                                                <option value="Chile">Chile</option>
-                                                <option value="Chile">Zimbabwe</option>
+                                                @{var grafo = (GrafoRotasVoo)ViewData["Grafo"]; }
+                                                @foreach (var vertice in grafo.Vertices)
+                                                {
+                                                    <option value="@vertice.Aeroporto">@vertice.Aeroporto</option>
+                                                }
+
                                             </select>
                                         </label>
 
@@ -86,17 +86,11 @@
                                         <div class="probootstrap_select-wrap">
                                             <label for="id_label_single2" style="width: 100%;">
                                                 <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                                                    <option value="Australia">Australia</option>
-                                                    <option value="Japan">Japan</option>
-                                                    <option value="United States">United States</option>
-                                                    <option value="Brazil">Brazil</option>
-                                                    <option value="China">China</option>
-                                                    <option value="Israel">Israel</option>
-                                                    <option value="Philippines">Philippines</option>
-                                                    <option value="Malaysia">Malaysia</option>
-                                                    <option value="Canada">Canada</option>
-                                                    <option value="Chile">Chile</option>
-                                                    <option value="Chile">Zimbabwe</option>
+                                                    @foreach (var vertice in grafo.Vertices)
+                                                    {
+                                                        <option value="@vertice.Aeroporto">@vertice.Aeroporto</option>
+                                                    }
+
                                                 </select>
                                             </label>
                                         </div>
