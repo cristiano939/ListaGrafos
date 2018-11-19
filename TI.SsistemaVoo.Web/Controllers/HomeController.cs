@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TI.SsistemaVoo.Web.Interfaces;
 using TI.SsistemaVoo.Web.Models;
@@ -25,17 +26,15 @@ namespace TI.SsistemaVoo.Web.Controllers
             return View();
         }
 
-        public IActionResult About()
+   
+        [HttpPost]
+        [Route("SearchFlights")]
+        public IActionResult SearchFlights(IFormCollection parameters)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
+            //var grafoVooRotas = _grafoHandler.GetGrafoFromDB();
+            //var caminho = grafoVooRotas.EncontraMelhorCaminho(idOrigemDD, idDestinoDD);
+            //ViewData["Caminho"] = caminho;
+            //return Redirect("");
             return View();
         }
 
